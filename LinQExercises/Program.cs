@@ -7,10 +7,36 @@ namespace LinQExercises
     {
         static void Main(string[] args)
         {
+            System.Console.WriteLine("-----------Lista de Clientes-----------");
             simpleSelect();
+            System.Console.WriteLine("-----------Pedidos según clientes-----------");
             innerJoinSelect();
+            System.Console.WriteLine("-----------Pedidos Agrupados según clientes-----------");
             groupDataByBusyProgrammers();
+            System.Console.WriteLine("-----------Pedidos Agrupados Elegantemente según clientes-----------");
             groupDataByStylishProgrammers();
+            System.Console.WriteLine("-----------Pedidos según posición-----------");
+            skipAndTakeResults();
+        }
+
+        private static void skipAndTakeResults()
+        {
+
+            System.Console.WriteLine("----- Cinco primeros productos --------");
+            var cinco_productos = DataLists.ListaProductos.Take(5);
+            foreach (Producto producto in cinco_productos)
+            {
+                Console.WriteLine(String.Format("Producto {0}: {1} ({2} EUR)",
+                        producto.Id, producto.Descripcion, producto.Precio));
+            }
+            System.Console.WriteLine("-----´Productos a partir del octavo --------");
+            var productos_desde_octavo = DataLists.ListaProductos.Skip(8);
+            foreach (Producto producto in productos_desde_octavo)
+            {
+                Console.WriteLine(String.Format("Producto {0}: {1} ({2} EUR)",
+                        producto.Id, producto.Descripcion, producto.Precio));
+            }
+            Console.ReadKey();
         }
 
         private static void innerJoinSelect()
