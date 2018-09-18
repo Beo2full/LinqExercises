@@ -1,0 +1,7 @@
+C:\Projects\LinQ_Exercises\LinQExercises\LinQExercises\obj\Debug\LinQExercises.csprojAssemblyReference.cache
+C:\Projects\LinQ_Exercises\LinQExercises\LinQExercises\obj\Debug\LinQExercises.csproj.CoreCompileInputs.cache
+C:\Projects\LinQ_Exercises\LinQExercises\LinQExercises\bin\Debug\LinQExercises.exe.config
+C:\Projects\LinQ_Exercises\LinQExercises\LinQExercises\bin\Debug\LinQExercises.exe
+C:\Projects\LinQ_Exercises\LinQExercises\LinQExercises\bin\Debug\LinQExercises.pdb
+C:\Projects\LinQ_Exercises\LinQExercises\LinQExercises\obj\Debug\LinQExercises.exe
+C:\Projects\LinQ_Exercises\LinQExercises\LinQExercises\obj\Debug\LinQExercises.pdb
