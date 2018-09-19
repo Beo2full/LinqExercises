@@ -5,3 +5,9 @@ C:\Projects\LinQ_Exercises\LinQExercises\LinQExercises\bin\Debug\LinQExercises.e
 C:\Projects\LinQ_Exercises\LinQExercises\LinQExercises\bin\Debug\LinQExercises.pdb
 C:\Projects\LinQ_Exercises\LinQExercises\LinQExercises\obj\Debug\LinQExercises.exe
 C:\Projects\LinQ_Exercises\LinQExercises\LinQExercises\obj\Debug\LinQExercises.pdb
+C:\Proyectos\LinQExercises\LinQExercises\bin\Debug\LinQExercises.exe.config
+C:\Proyectos\LinQExercises\LinQExercises\obj\Debug\LinQExercises.exe
+C:\Proyectos\LinQExercises\LinQExercises\obj\Debug\LinQExercises.pdb
+C:\Proyectos\LinQExercises\LinQExercises\bin\Debug\LinQExercises.exe
+C:\Proyectos\LinQExercises\LinQExercises\bin\Debug\LinQExercises.pdb
+C:\Proyectos\LinQExercises\LinQExercises\obj\Debug\LinQExercises.csprojResolveAssemblyReference.cache

@@ -15,8 +15,16 @@ namespace LinQExercises
                 System.Console.WriteLine(border + " " + text + " " + border);
                 System.Console.WriteLine("");
             };
+
+            Func<string,char,string> diff = (text, separador) =>
+            {
+                string border = new string(separador, 10);
+                System.Console.WriteLine(border + " " + text + " " + border);
+                System.Console.WriteLine("");
+                return border;
+            };
             separateByIssue("Ejercicios W3Resource", '*');
-            var excerciesW3 = new ExcerciesW3();
+            var excerciesW3 = new ExcerciesW3(diff);
             excerciesW3.thirty();
             excerciesW3.tewntyNine();
             //Ejercicios de Web Daniel Marica
