@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLists.cs" />
+    <Compile Include="ExcerciesW3.cs" />
     <Compile Include="Tienda.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

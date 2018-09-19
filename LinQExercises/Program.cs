@@ -3,19 +3,33 @@ using System.Linq;
 
 namespace LinQExercises
 {
+    delegate void showEverythingTidy(string text, char separador = '-');
     class Program
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine("-----------Lista de Clientes-----------");
+            //Ejercicios web w3resource
+            showEverythingTidy separateByIssue = (text, separador) => 
+            {
+                string border = new string(separador, 10);
+                System.Console.WriteLine(border + " " + text + " " + border);
+                System.Console.WriteLine("");
+            };
+            separateByIssue("Ejercicios W3Resource", '*');
+            var excerciesW3 = new ExcerciesW3();
+            excerciesW3.thirty();
+            excerciesW3.tewntyNine();
+            //Ejercicios de Web Daniel Marica
+            separateByIssue("Tienda con LinQ",'*');
+            separateByIssue("Lista de Clientes",'-');
             simpleSelect();
-            System.Console.WriteLine("-----------Pedidos según clientes-----------");
+            separateByIssue("Pedidos según Clientes",'-');
             innerJoinSelect();
-            System.Console.WriteLine("-----------Pedidos Agrupados según clientes-----------");
+            separateByIssue("Pedidos Agrupados según Clientes",'-');
             groupDataByBusyProgrammers();
-            System.Console.WriteLine("-----------Pedidos Agrupados Elegantemente según clientes-----------");
+            separateByIssue("Pedidos Agrupados Elegantemente según clientes");
             groupDataByStylishProgrammers();
-            System.Console.WriteLine("-----------Pedidos según posición-----------");
+            separateByIssue("Pedidos según Posición");
             skipAndTakeResults();
         }
 
