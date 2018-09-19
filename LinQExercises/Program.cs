@@ -3,20 +3,20 @@ using System.Linq;
 
 namespace LinQExercises
 {
-    delegate void showEverythingTidy(string text, char separador = '-');
+//    delegate void showEverythingTidy(string text, char separador = '-');
     class Program
     {
         static void Main(string[] args)
         {
             //Ejercicios web w3resource
-            showEverythingTidy separateByIssue = (text, separador) => 
-            {
-                string border = new string(separador, 10);
-                System.Console.WriteLine(border + " " + text + " " + border);
-                System.Console.WriteLine("");
-            };
+            //showEverythingTidy separateByIssue = (text, separador) => 
+            //{
+            //    string border = new string(separador, 10);
+            //    System.Console.WriteLine(border + " " + text + " " + border);
+            //    System.Console.WriteLine("");
+            //};
 
-            Func<string,char,string> diff = (text, separador) =>
+            Func<string,char,string> separateByIssue = (text, separador) =>
             {
                 string border = new string(separador, 10);
                 System.Console.WriteLine(border + " " + text + " " + border);
@@ -24,7 +24,7 @@ namespace LinQExercises
                 return border;
             };
             separateByIssue("Ejercicios W3Resource", '*');
-            var excerciesW3 = new ExcerciesW3(diff);
+            var excerciesW3 = new ExcerciesW3(separateByIssue);
             excerciesW3.thirty();
             excerciesW3.tewntyNine();
             //Ejercicios de Web Daniel Marica
@@ -35,9 +35,9 @@ namespace LinQExercises
             innerJoinSelect();
             separateByIssue("Pedidos Agrupados según Clientes",'-');
             groupDataByBusyProgrammers();
-            separateByIssue("Pedidos Agrupados Elegantemente según clientes");
+            separateByIssue("Pedidos Agrupados Elegantemente según clientes",'-');
             groupDataByStylishProgrammers();
-            separateByIssue("Pedidos según Posición");
+            separateByIssue("Pedidos según Posición",'-');
             skipAndTakeResults();
         }
 

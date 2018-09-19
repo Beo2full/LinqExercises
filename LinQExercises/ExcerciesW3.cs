@@ -7,18 +7,18 @@ namespace LinQExercises
     internal class ExcerciesW3
     {
         List<string> food_choices;
-        Func<string, char, string> _diff;
-        public ExcerciesW3(Func<string, char, string> diff)
+        Func<string, char, string> _separateByIssue;
+        public ExcerciesW3(Func<string, char, string> separateByIssue)
         {
             food_choices = new List<string>();
-            this._diff = diff;
+            this._separateByIssue = separateByIssue;
         }
 
         public void thirty()
         {
 
             //Console.WriteLine("--------------- Alphabetically Ordered Food Choices ---------------");
-            this._diff("Alphabetically Ordered Food Choices", '-');
+            this._separateByIssue("Alphabetically Ordered Food Choices", '-');
             food_choices.Add("Honey");
             food_choices.Add("Butter");
             food_choices.Add("Biscuit");
