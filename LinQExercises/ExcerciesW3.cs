@@ -7,8 +7,9 @@ namespace LinQExercises
     internal class ExcerciesW3
     {
         List<string> food_choices;
-        Func<string, char, string> _separateByIssue;
-        public ExcerciesW3(Func<string, char, string> separateByIssue)
+        /** Action es un método anónimo, al igual que Func, pero no devuelve nada (no tiene return)**/
+        Action<string, char> _separateByIssue;
+        public ExcerciesW3(Action<string, char> separateByIssue)
         {
             food_choices = new List<string>();
             this._separateByIssue = separateByIssue;

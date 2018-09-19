@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LinQExercises
@@ -8,20 +9,20 @@ namespace LinQExercises
     {
         static void Main(string[] args)
         {
-            //Ejercicios web w3resource
-            //showEverythingTidy separateByIssue = (text, separador) => 
-            //{
-            //    string border = new string(separador, 10);
-            //    System.Console.WriteLine(border + " " + text + " " + border);
-            //    System.Console.WriteLine("");
-            //};
 
-            Func<string,char,string> separateByIssue = (text, separador) =>
+            Action<string,char> separateByIssue = (text, separador) =>
             {
                 string border = new string(separador, 10);
                 System.Console.WriteLine(border + " " + text + " " + border);
                 System.Console.WriteLine("");
-                return border;
+            };
+            Action<IEnumerable<Producto>> writeProducts = (lista_elementos) =>
+            {
+                foreach (Producto producto in lista_elementos)
+                {
+                    Console.WriteLine(String.Format("Producto {0}: {1} ({2} EUR)",
+                            producto.Id, producto.Descripcion, producto.Precio));
+                }
             };
             separateByIssue("Ejercicios W3Resource", '*');
             var excerciesW3 = new ExcerciesW3(separateByIssue);
@@ -32,32 +33,36 @@ namespace LinQExercises
             separateByIssue("Lista de Clientes",'-');
             simpleSelect();
             separateByIssue("Pedidos según Clientes",'-');
+
+
             innerJoinSelect();
             separateByIssue("Pedidos Agrupados según Clientes",'-');
             groupDataByBusyProgrammers();
             separateByIssue("Pedidos Agrupados Elegantemente según clientes",'-');
             groupDataByStylishProgrammers();
             separateByIssue("Pedidos según Posición",'-');
-            skipAndTakeResults();
+            skipAndTakeResults(writeProducts);
+            separateByIssue("Pedidos según condiciones", '-');
+            conditionalSkipAndTakeResults(writeProducts);
         }
 
-        private static void skipAndTakeResults()
+        private static void conditionalSkipAndTakeResults(Action<IEnumerable<Producto>>  writeProducts)
+        {
+            Console.WriteLine("------ Lista de producto desde el primer producto de más de 3 euros-------");
+            var consultaMenosTresEurops = DataLists.ListaProductos.SkipWhile(producto => producto.Precio < 3.00f);
+            writeProducts(consultaMenosTresEurops);
+            Console.ReadKey();
+        }
+
+        private static void skipAndTakeResults(Action<IEnumerable<Producto>> writeProducts)
         {
 
             System.Console.WriteLine("----- Cinco primeros productos --------");
             var cinco_productos = DataLists.ListaProductos.Take(5);
-            foreach (Producto producto in cinco_productos)
-            {
-                Console.WriteLine(String.Format("Producto {0}: {1} ({2} EUR)",
-                        producto.Id, producto.Descripcion, producto.Precio));
-            }
-            System.Console.WriteLine("-----´Productos a partir del octavo --------");
+            writeProducts(cinco_productos);
+            System.Console.WriteLine("----- Productos a partir del octavo --------");
             var productos_desde_octavo = DataLists.ListaProductos.Skip(8);
-            foreach (Producto producto in productos_desde_octavo)
-            {
-                Console.WriteLine(String.Format("Producto {0}: {1} ({2} EUR)",
-                        producto.Id, producto.Descripcion, producto.Precio));
-            }
+            writeProducts(productos_desde_octavo);
             Console.ReadKey();
         }
 
@@ -99,7 +104,8 @@ namespace LinQExercises
                 Console.WriteLine("Cliente: {0}", cliente.First());
                 
                 foreach (var objetoAgrupado in grupo)
-                    Console.Write("\t\tPedido nº " + objetoAgrupado.Id + ": " + objetoAgrupado.FechaPedido + "]" + Environment.NewLine);
+                    Console.Write("\t\tPedido nº " + objetoAgrupado.Id + ": " + objetoAgrupado.FechaPedido  + Environment.NewLine);
+                    
             }
             System.Console.ReadKey();
         }
