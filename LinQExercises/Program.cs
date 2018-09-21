@@ -4,18 +4,10 @@ using System.Linq;
 
 namespace LinQExercises
 {
-//    delegate void showEverythingTidy(string text, char separador = '-');
     class Program
     {
         static void Main(string[] args)
         {
-
-            Action<string,char> separateByIssue = (text, separador) =>
-            {
-                string border = new string(separador, 10);
-                System.Console.WriteLine(border + " " + text + " " + border);
-                System.Console.WriteLine("");
-            };
             Action<IEnumerable<Producto>> writeProducts = (lista_elementos) =>
             {
                 foreach (Producto producto in lista_elementos)
@@ -24,18 +16,26 @@ namespace LinQExercises
                             producto.Id, producto.Descripcion, producto.Precio));
                 }
             };
+            Action<string, char> separateByIssue = (text, separador) =>
+            {
+                string border = new string(separador, 10);
+                System.Console.WriteLine(border + " " + text + " " + border);
+                System.Console.WriteLine("");
+            };
             separateByIssue("Ejercicios W3Resource", '*');
             var excerciesW3 = new ExcerciesW3(separateByIssue);
             excerciesW3.thirty();
             excerciesW3.tewntyNine();
-            //Ejercicios de Web Daniel Marica
+            //Ejercicios de Web Daniel Garcia
+
             separateByIssue("Tienda con LinQ",'*');
             separateByIssue("Lista de Clientes",'-');
             simpleSelect();
+            countDistinct();
             separateByIssue("Pedidos según Clientes",'-');
-
-
             innerJoinSelect();
+            separateByIssue("Precio de los Pedidos según Clientes", '-');
+
             separateByIssue("Pedidos Agrupados según Clientes",'-');
             groupDataByBusyProgrammers();
             separateByIssue("Pedidos Agrupados Elegantemente según clientes",'-');
@@ -104,7 +104,7 @@ namespace LinQExercises
                 Console.WriteLine("Cliente: {0}", cliente.First());
                 
                 foreach (var objetoAgrupado in grupo)
-                    Console.Write("\t\tPedido nº " + objetoAgrupado.Id + ": " + objetoAgrupado.FechaPedido  + Environment.NewLine);
+                    Console.Write("\t\tPedido nº " + objetoAgrupado.Id + ": " + objetoAgrupado.FechaPedido + Environment.NewLine);
                     
             }
             System.Console.ReadKey();
@@ -129,6 +129,7 @@ namespace LinQExercises
             //inner
             //join clientes c on c.id = p.idcliente
             //group by p.idcliente, c.nombre
+
         }
 
         private static void simpleSelect()
@@ -141,6 +142,14 @@ namespace LinQExercises
                 System.Console.WriteLine(cliente.Nombre);
             }
             System.Console.ReadKey();
+        }
+
+        private static void countDistinct()
+        {
+            var countPedidosByClientes = from pedido in DataLists.ListaPedidos select pedido.IdCliente;
+            Console.WriteLine(string.Format("Existe un total de {0} clientes distintos que han realizado pedidos.",
+                countPedidosByClientes.Distinct().Count()));
+            Console.ReadKey();
         }
     }
 }
