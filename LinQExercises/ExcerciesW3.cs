@@ -42,6 +42,30 @@ namespace LinQExercises
             System.Console.ReadKey();
         }
 
+        internal void eleven()
+        {            
+            int [] arrayNumbers = new int[] { 5,7,13,24,6,9,8,7};
+            Console.WriteLine("Introduzca el número de elementos a mostrar (Max {0}): ", arrayNumbers.Length);
+            var input = Int32.Parse(Console.ReadLine());
+            if (input <= arrayNumbers.Length)
+            {
+                var topNumbers = (from number in arrayNumbers
+                                  orderby number descending
+                                  select number).Take(input);
+                Console.WriteLine("--------------- Top "+ input + " max numbers  ---------------");
+                foreach (var number in topNumbers)
+                {
+                    Console.WriteLine(number);
+                }
+                Console.ReadKey();
+            }
+            else {
+                Console.WriteLine("El número especificado es mayor al número de elementos contenidos");
+                
+            }
+            
+        }
+
         public void tewntyNine()
         {
             Console.WriteLine("--------------- Cities Grouped by Index  ---------------");

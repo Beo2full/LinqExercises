@@ -26,6 +26,7 @@ namespace LinQExercises
             var excerciesW3 = new ExcerciesW3(separateByIssue);
             excerciesW3.thirty();
             excerciesW3.tewntyNine();
+            excerciesW3.eleven();
             //Ejercicios de Web Daniel Garcia
 
             separateByIssue("Tienda con LinQ",'*');
