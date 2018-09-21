@@ -121,7 +121,7 @@ namespace LinQExercises
                 Console.WriteLine("Nombre Cliente: {0} (ID: {1})", grupo.Key.Nombre, grupo.Key.IdCliente);
 
                 foreach (var objetoAgrupado in grupo)
-                    Console.Write("\t\tPedido nº " + objetoAgrupado.Id + ": " + objetoAgrupado.FechaPedido + "]" + Environment.NewLine);
+                    Console.Write("\t\tPedido nº " + objetoAgrupado.Id + ": " + objetoAgrupado.FechaPedido + Environment.NewLine);
             }
             System.Console.ReadKey();
             //            select c.nombre, p.idcliente, count(p.id)
